@@ -5,22 +5,39 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  say-hello:
+  update-doc-files:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
-      - image: cimg/base:stable
+      - image: node:latest
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "5d:3f:fe:aa:c0:84:09:e7:fd:8c:d3:fc:dd:a7:8b:10"
       - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
+          name: "Install dependencies"
+          command: "yarn"
+      - run:
+          name: "Install zx tool"
+          command: "npm install -g zx"
+      - run:
+          name: "Run script to copy wiki files to docs directory"
+          command: "chmod +x ./script.mjs && ./script.mjs"
+      - run:
+          name: "Push commit to GitHub"
+          command: |
+            git config user.email "tienvinh.duong4@gmail.com"
+            git config user.name "CircleCI"
+            git add -A
+            git commit -m "docs: add doc files"
+            git push origin main
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  say-hello-workflow:
+  update-doc-files-workflow:
     jobs:
-      - say-hello
+      - update-doc-files
