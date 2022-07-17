@@ -2,7 +2,9 @@ Welcome to the owasp-juice-shop wiki!
 
 Please add a wiki page with this form to submit the challenge solution:
 
-**Name**:
+---
+
+# Challenge name
 
 **Difficulty**: :star2:
 
