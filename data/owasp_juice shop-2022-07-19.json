@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "scoreBoard": {
+    "displayedDifficulties": [1],
+    "showSolvedChallenges": true,
+    "showDisabledChallenges": true
+  },
+  "banners": {
+    "welcomeBannerStatus": "dismiss",
+    "cookieConsentStatus": "dismiss"
+  },
+  "language": "en",
+  "continueCode": "jxkMXgwP5nR7a6VzLKm2lW4oGMxHY5S75uKKdpq9jQ1DbJxyENOrB8Ye3vZM"
+}
