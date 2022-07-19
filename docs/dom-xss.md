@@ -2,7 +2,7 @@
 
 **Difficulty**: :star2:
 
-**Description**: Perform a DOM XSS attack with <iframe src="javascript:alert(`xss`)">.
+**Description**: Perform a DOM XSS attack with `<iframe src="javascript:alert(`xss`)">`.
 
 **Category**: XSS
 
