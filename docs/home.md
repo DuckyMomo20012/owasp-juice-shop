@@ -1,6 +1,8 @@
 Welcome to the owasp-juice-shop wiki!
 
-Please add a wiki page with this form to submit the challenge solution:
+To contribute to the project, please **add a wiki page** with the form format below to submit the challenge solution and **a backup file** to store progress. E.g: `owasp_juice shop-2022-07-19.json`.
+
+Submission form:
 
 ---
 
