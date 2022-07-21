@@ -3,7 +3,7 @@
 import "zx/globals";
 const fsPromise = require("fs/promises");
 
-console.log(chalk.gray("Removing old wiki repository folder..."));
+console.log(chalk.gray("> Removing old wiki repository folder..."));
 
 await $`rm -rf ../owasp-juice-shop.wiki`;
 
@@ -12,7 +12,7 @@ await $`mkdir ../owasp-juice-shop.wiki`;
 await $`git clone "https://github.com/DuckyMomo20012/owasp-juice-shop.wiki.git" ../owasp-juice-shop.wiki`;
 
 console.log(
-  chalk.gray(`Moving wiki markdown files to ${chalk.blue("docs")} folder...`)
+  chalk.gray(`> Moving wiki markdown files to ${chalk.blue("docs")} folder...`)
 );
 
 const wikiFiles = await globby("../owasp-juice-shop.wiki/*.md");
@@ -29,7 +29,12 @@ await Promise.all(
 
     if (fileExists) {
       echo(`Overwrite: ${chalk.green(newFileName)}`);
-      return;
+    } else {
+      echo(
+        `Copy from wiki repo and rename: ${chalk.red.strikethrough(
+          path.basename(fileName)
+        )} -> ${chalk.green(newFileName)}`
+      );
     }
 
     await fs.move(
@@ -40,19 +45,11 @@ await Promise.all(
         overwrite: true,
       }
     );
-
-    if (newFileName !== fileName) {
-      echo(
-        `Copied and renamed: ${chalk.red.strikethrough(
-          fileName
-        )} -> ${chalk.green(newFileName)}`
-      );
-    }
   })
 );
 
 console.log(
-  chalk.gray("Extracting last commit information of wiki repository...")
+  chalk.gray("> Extracting last commit information of wiki repository...")
 );
 
 // NOTE: Use `within` to avoid changing context to outside of the main repo
@@ -88,13 +85,14 @@ if (lastWikiCommit) {
   // Extract information from data
   const [author, email, subject] = lastWikiCommit.split("\n");
 
-  console.log(chalk.gray("Pushing new changes to wiki repository..."));
+  console.log(chalk.gray("> Pushing new changes to wiki repository..."));
 
   try {
     await $`git config user.email ${email}`;
     await $`git config user.name ${author}`;
     // Only stage markdown files. This cmd won't stage ignored files.
     await $`git add \\*.md`;
+    await $`git status`;
     await $`git commit -m ${"docs: " + subject.toLowerCase()}`;
     await $`git push origin main`;
   } catch (err) {
@@ -102,6 +100,6 @@ if (lastWikiCommit) {
   }
 }
 
-console.log(chalk.gray("Removing wiki repository folder..."));
+console.log(chalk.gray("> Removing wiki repository folder..."));
 
 await $`rm -rf ../owasp-juice-shop.wiki`;
