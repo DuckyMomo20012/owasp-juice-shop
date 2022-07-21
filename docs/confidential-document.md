@@ -15,5 +15,6 @@ We access the path `http://127.0.0.1:3000/ftp` and will see a list of files
 ![image](https://user-images.githubusercontent.com/70436051/180163234-966454b0-b728-4ea3-9ddd-3ebf23d75b7f.png)
 We click on `acquisitions.md` and we get the challenge
 ![image](https://user-images.githubusercontent.com/70436051/180163675-ecaf65df-9a31-4f25-b1b1-f5a0baac7ea9.png)
+![image](https://user-images.githubusercontent.com/70436051/180165183-23d0aee2-f68b-42a3-a67d-62c459a07a27.png)
 
 
