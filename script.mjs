@@ -1,7 +1,6 @@
 #!/usr/bin/env zx
 
 import "zx/globals";
-const fsPromise = require("fs/promises");
 
 console.log(chalk.gray("> Removing old wiki repository folder..."));
 
@@ -57,7 +56,7 @@ await within(async () => {
   await $`git log -1 --pretty=format:"%an%n%ae%n%s" > last_commit.txt`;
 
   try {
-    lastWikiCommit = await fsPromise.readFile(
+    lastWikiCommit = await fs.readFile(
       path.resolve("./last_commit.txt"),
       "utf8"
     );

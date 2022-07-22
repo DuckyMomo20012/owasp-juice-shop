@@ -10,9 +10,7 @@ const hashids = new Hashids(
   "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
 );
 
-const fsPromise = require("fs/promises");
-
-const challengesFile = await fsPromise.readFile(
+const challengesFile = await fs.readFile(
   path.resolve("./data/challenges.yml"),
   "utf8"
 );
