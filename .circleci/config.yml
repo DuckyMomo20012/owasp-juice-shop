@@ -37,7 +37,7 @@ jobs:
           name: "Install zx tool"
           command: "npm install -g zx"
       - run:
-          name: "Run script to copy wiki files to docs directory and Push commit to GitHub"
+          name: "Run script to copy wiki files, generate new backup file and Push commit to GitHub"
           command: "chmod +x ./script.mjs && ./script.mjs"
 
 # Invoke jobs via workflows

@@ -85,18 +85,40 @@ if (lastWikiCommit) {
   // Extract information from data
   const [author, email, subject] = lastWikiCommit.split("\n");
 
-  console.log(chalk.gray("> Pushing new changes to wiki repository..."));
-
+  await $`git config user.email ${email}`;
+  await $`git config user.name ${author}`;
   try {
-    await $`git config user.email ${email}`;
-    await $`git config user.name ${author}`;
+    console.log(
+      chalk.gray("> Pushing new wiki doc changes to wiki repository...")
+    );
     // Only stage markdown files. This cmd won't stage ignored files.
     await $`git add \\*.md`;
     await $`git status`;
     await $`git commit -m ${"docs: " + subject.toLowerCase()}`;
-    await $`git push origin main`;
+    // await $`git push origin main`;
   } catch (err) {
-    console.log(chalk.red("Failed to push changes to wiki repository!"));
+    console.log(
+      chalk.red(
+        "Failed to push new wiki doc changes to wiki repository or branch is up to date!"
+      )
+    );
+  }
+
+  try {
+    console.log(chalk.gray("> Generating new backup file..."));
+    await $`./generateBackup.mjs`;
+
+    console.log(chalk.gray("> Pushing new backup file to repository..."));
+    await $`git add \\*.json`;
+    await $`git status`;
+    await $`git commit -m ${"chore: update backup file"}`;
+    // await $`git push origin main`;
+  } catch (err) {
+    console.log(
+      chalk.red(
+        "Failed to push backup file to repository or branch is up to date!"
+      )
+    );
   }
 }
 
