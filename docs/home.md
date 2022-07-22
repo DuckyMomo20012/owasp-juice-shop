@@ -2,6 +2,8 @@
 
 To contribute to the project, please **add a wiki page** with the form format below to submit the challenge solution and **a backup file** to store progress. E.g: `owasp_juice shop-2022-07-19.json`.
 
+> NOTE: Now the backup file will be generated automatically :ok_hand:.
+
 ---
 
 Submission form:
