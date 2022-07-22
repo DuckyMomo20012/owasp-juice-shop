@@ -21,7 +21,8 @@ await Promise.all(
     if (!fileName.includes(".md")) return;
 
     // We only take base name of the file, not including the parent path
-    const newFileName = path.basename(fileName).toLowerCase();
+    // Replace "'" to resolve error
+    const newFileName = path.basename(fileName).toLowerCase().replace("'", "");
 
     const fileExists = await fs.pathExists(
       path.resolve(`./docs/${newFileName}`)
