@@ -96,7 +96,7 @@ if (lastWikiCommit) {
     await $`git add \\*.md`;
     await $`git status`;
     await $`git commit -m ${"docs: " + subject.toLowerCase()}`;
-    // await $`git push origin main`;
+    await $`git push origin main`;
   } catch (err) {
     console.log(
       chalk.red(
@@ -113,7 +113,7 @@ if (lastWikiCommit) {
     await $`git add \\*.json`;
     await $`git status`;
     await $`git commit -m ${"chore: update backup file"}`;
-    // await $`git push origin main`;
+    await $`git push origin main`;
   } catch (err) {
     console.log(
       chalk.red(
