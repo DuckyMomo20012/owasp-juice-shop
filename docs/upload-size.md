@@ -6,8 +6,7 @@
 
 **Category**: Improper Input Validation
 
-**Tags**: `Shenanigans`, `Contraption`, `OSINT`, `Good Practice`, `Danger Zone`,
-`Good for Demos`, `Prerequisite`, `Brute Force`, `Tutorial`, `Code Analysis`
+**Tags**:
 
 **Solution**:
 
