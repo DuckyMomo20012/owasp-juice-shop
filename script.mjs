@@ -24,20 +24,6 @@ await Promise.all(
     // Replace "'" to resolve error
     const newFileName = path.basename(fileName).toLowerCase().replace("'", "");
 
-    const fileExists = await fs.pathExists(
-      path.resolve(`./docs/${newFileName}`)
-    );
-
-    if (fileExists) {
-      echo(`Overwrite: ${chalk.green(newFileName)}`);
-    } else {
-      echo(
-        `Copy from wiki repo and rename: ${chalk.red.strikethrough(
-          path.basename(fileName)
-        )} -> ${chalk.green(newFileName)}`
-      );
-    }
-
     await fs.move(
       // Convert to absolute path to resolve errors
       path.resolve(`${fileName}`),
@@ -94,8 +80,21 @@ if (lastWikiCommit) {
     );
     // Only stage markdown files. This cmd won't stage ignored files.
     await $`git add \\*.md`;
-    await $`git status`;
-    await $`git commit -m ${"docs: " + subject.toLowerCase()}`;
+    const status = await $`git status --short`;
+
+    // Filter out status for files that are not staged and empty string
+    const stagedFiles = status.stdout
+      .split("\n")
+      .filter((line) => !line.includes("??") && line.length > 0);
+
+    // NOTE: Here we can update commit message based on git status. E.g: "M" for
+    // modified, "A" for added, etc. But I think it's not necessary.
+    if (stagedFiles.length > 1) {
+      await $`git commit -m "docs: update multiple files"`;
+    } else {
+      await $`git commit -m ${"docs: " + subject.toLowerCase()}`;
+    }
+
     await $`git push origin main`;
   } catch (err) {
     console.log(
