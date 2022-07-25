@@ -17,7 +17,7 @@ While reading and moving the cursor along paragraphs, I noticed the special effe
 
 ![image](https://user-images.githubusercontent.com/63692190/180631150-2c6d083f-c66d-416b-8f3f-59bf9739d807.png)
 
-Note down all text inside <span class="hot"> tags, which are `http://localhost`, `We may also`, `instruct you`, `to refuse all`, `reasonably necessary` and `responsibility`
+Note down all text inside `<span class="hot"></span>` tags, which are `http://localhost`, `We may also`, `instruct you`, `to refuse all`, `reasonably necessary` and `responsibility`
 
 Combine those into URL http://localhost:3000/we/may/also/instruct/you/to/refuse/all/reasonably/necessary/responsibility and visit it
 
