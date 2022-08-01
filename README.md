@@ -1,10 +1,10 @@
 <div align="center">
 
-  <img src="assets/logo.png" alt="logo" width="200" height="auto" />
-  <h1>Awesome Readme Template</h1>
+  <img src="https://raw.githubusercontent.com/juice-shop/juice-shop/develop/frontend/src/assets/public/images/JuiceShop_Logo_100px.png" alt="logo" width="200" height="auto" />
+  <h1>OWASP Juice Shop</h1>
 
   <p>
-    An awesome README template for your projects!
+    OWASP Juice Shop Solutions Report
   </p>
 
 <!-- Badges -->
@@ -47,14 +47,14 @@
 # :notebook_with_decorative_cover: Table of Contents
 
 - [About the Project](#star2-about-the-project)
-  - [Screenshots](#camera-screenshots)
-  - [Tech Stack](#space_invader-tech-stack)
+  - [Description](#thoughtballoon-description)
 - [Getting Started](#toolbox-getting-started)
   - [Prerequisites](#bangbang-prerequisites)
   - [Run Locally](#running-run-locally)
   - [Deployment](#triangular_flag_on_post-deployment)
 - [Usage](#eyes-usage)
-- [Roadmap](#compass-roadmap)
+  - [Restore Progress](#inboxtray-restore-progress)
+  - [Running Scripts](#heavycheckmark-running-scripts)
 - [Contributing](#wave-contributing)
   - [Code of Conduct](#scroll-code-of-conduct)
 - [FAQ](#grey_question-faq)
@@ -66,61 +66,17 @@
 
 ## :star2: About the Project
 
-<!-- Screenshots -->
+<!-- Description -->
 
-### :camera: Screenshots
+### :thought_balloon: Description:
 
-<div align="center">
-  <img src="https://placehold.co/600x400?text=Your+Screenshot+here" alt="screenshot" />
-</div>
+This project just provides solutions with little explanation. For detail
+explanation, please go to this page:
 
-<!-- TechStack -->
+- https://github.com/juice-shop/juice-shop/blob/master/SOLUTIONS.md
 
-### :space_invader: Tech Stack
-
-<details>
-  <summary>Client</summary>
-  <ul>
-    <li><a href="https://www.typescriptlang.org/">Typescript</a></li>
-    <li><a href="https://nextjs.org/">Next.js</a></li>
-    <li><a href="https://reactjs.org/">React.js</a></li>
-    <li><a href="https://tailwindcss.com/">TailwindCSS</a></li>
-  </ul>
-</details>
-
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="https://www.typescriptlang.org/">Typescript</a></li>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
-    <li><a href="https://go.dev/">Golang</a></li>
-    <li><a href="https://nestjs.com/">Nest.js</a></li>
-    <li><a href="https://socket.io/">SocketIO</a></li>
-    <li><a href="https://www.prisma.io/">Prisma</a></li>
-    <li><a href="https://www.apollographql.com/">Apollo</a></li>
-    <li><a href="https://graphql.org/">GraphQL</a></li>
-  </ul>
-</details>
-
-<details>
-<summary>Database</summary>
-  <ul>
-    <li><a href="https://www.mysql.com/">MySQL</a></li>
-    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
-    <li><a href="https://redis.io/">Redis</a></li>
-    <li><a href="https://neo4j.com/">Neo4j</a></li>
-    <li><a href="https://www.mongodb.com/">MongoDB</a></li>
-  </ul>
-</details>
-
-<details>
-<summary>DevOps</summary>
-  <ul>
-    <li><a href="https://www.docker.com/">Docker</a></li>
-    <li><a href="https://www.jenkins.io/">Jenkins</a></li>
-    <li><a href="https://circleci.com/">CircleCLI</a></li>
-  </ul>
-</details>
+This project secondly focuses on using **`CircleCI`**, **`Github Actions`** and
+**`zx`** tool to automate the updating process.
 
 <!-- Getting Started -->
 
@@ -136,6 +92,14 @@ This project uses [Yarn](https://yarnpkg.com/) as package manager:
 npm install --global yarn
 ```
 
+To run the script, you need to install [zx](https://github.com/google/zx) tool:
+
+**Requirement**: Node version >= 16.0.0
+
+```bash
+npm install --global zx
+```
+
 <!-- Run Locally -->
 
 ### :running: Run Locally
@@ -149,7 +113,7 @@ git clone https://github.com/DuckyMomo20012/owasp-juice-shop.git
 Go to the project directory:
 
 ```bash
-cd my-project
+cd owasp-juice-shop
 ```
 
 Install dependencies:
@@ -178,23 +142,49 @@ yarn deploy
 
 ## :eyes: Usage
 
-Use this space to tell a little more about your project and how it can be used.
-Show additional screenshots, code samples, demos, or links to other resources.
+### :inbox_tray: Restore Progress
 
-```javascript
-import Component from "my-project";
+Go to your Juice Shop's scoreboard and restore latest backup file from `data`
+folder.
 
-function App() {
-  return <Component />;
-}
-```
+### :heavy_check_mark: Running Scripts
 
-<!-- Roadmap -->
+Most of the time, you don't have to run these scripts manually. Every time you
+add a Wiki page, the project will automatically run the Github Actions and
+CircleCI to update the documents.
 
-## :compass: Roadmap
+> NOTE: These scripts only run on `Linux` and `MacOS`. `Windows` is not
+> supported.
 
-- [x] Todo 1.
-- [ ] Todo 2.
+- `generateBackup.mjs`:
+
+  - This script will generate a backup file and store it in
+    `data` folder.
+  - This file will contain all the data to restore the hacking
+    progress in Juice Shop's scoreboard.
+
+- `script.mjs`:
+
+  - This script will fetch all the documents from the project's
+    [Wiki](https://github.com/DuckyMomo20012/owasp-juice-shop/wiki) page, copy
+    those to folder `docs` and run file `generateBackup.mjs` to generate a
+    backup file.
+  - Finally, it will push a new commit to the repository.
+
+- `generateReport.mjs`:
+
+  - This script will copy all the documents from folder `docs` to the middle of
+    file `report.md`.
+  - Documents will be copied to between this tag:
+
+    ```
+    <!-- GENERATE-DOC:START -->
+    Your content goes here
+    <!-- GENERATE-DOC:END -->
+    ```
+
+    > NOTE: The generation maybe slow and take some time, or even fail due to
+    > large amount of data.
 
 <!-- Contributing -->
 
@@ -206,7 +196,7 @@ function App() {
 
 Contributions are always welcome!
 
-See `contributing.md` for ways to get started.
+See `CONTRIBUTING.md` for ways to get started.
 
 <!-- Code of Conduct -->
 
@@ -218,13 +208,14 @@ Please read the [Code of Conduct](https://github.com/DuckyMomo20012/owasp-juice-
 
 ## :grey_question: FAQ
 
-- Question 1
+- Is this project still maintained?
 
-  - Answer 1.
+  - No, but we will update new solutions when we have time :sweat_smile:.
 
-- Question 2
+- My solution is not updated on the project's documentation web page:
 
-  - Answer 2.
+  - Docusaurus can't parse your content. Please check it locally.
+  - Consider to **put the HTML code in code block** to prevent this problem.
 
 <!-- License -->
 
@@ -250,5 +241,5 @@ Here are useful resources and libraries that we have used in our projects:
 
 - [Docusaurus](https://docusaurus.io/): Build optimized websites quickly, focus
   on your content.
-- [Awesome Readme Template](https://github.com/Louis3797/owasp-juice-shop):
+- [Awesome Readme Template](https://github.com/Louis3797/awesome-readme-template):
   A detailed template to bootstrap your README file quickly.
