@@ -1,6 +1,6 @@
 # Admin Registration
 
-**Difficulty**: :star2::sctar2::star2:
+**Difficulty**: :star2::star2::star2:
 
 **Description**: Register as a user with administrator privileges.
 
