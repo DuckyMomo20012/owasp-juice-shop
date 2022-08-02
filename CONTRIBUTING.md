@@ -7,6 +7,15 @@ store progress. E.g: `owasp_juice shop-2022-07-19.json`.
 
 > NOTE: Now the backup file will be generated automatically :ok_hand:.
 
+**Notes:**
+
+- Your solution submission MUST include heading 1 as the challenge name in the
+  `Title case`. E.g: `# Admin Registration`, `# API-only XSS`, `# Bjoern's Favorite Pet`.
+- Challenge name MUST be in the
+  [challenge](https://github.com/juice-shop/juice-shop/blob/master/data/static/challenges.yml)
+  list.
+- HTML code MUST be put in `code block`.
+
 ---
 
 Submission form:
