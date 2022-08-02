@@ -2,6 +2,8 @@
 
 import "zx/globals";
 
+const ignored = ["home.md"];
+
 console.log(chalk.gray("> Removing old wiki repository folder..."));
 
 await $`rm -rf ../owasp-juice-shop.wiki`;
@@ -17,7 +19,7 @@ console.log(
 const wikiFiles = await globby("../owasp-juice-shop.wiki/*.md");
 await Promise.all(
   wikiFiles.map(async (fileName) => {
-    if (!fileName.includes(".md")) return;
+    if (!fileName.includes(".md") || !ignored.includes(fileName)) return;
 
     // We only take base name of the file, not including the parent path
     // Replace "'" to resolve error
