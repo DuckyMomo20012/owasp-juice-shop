@@ -216,6 +216,8 @@ Please read the [Code of Conduct](https://github.com/DuckyMomo20012/owasp-juice-
 
   - Docusaurus can't parse your content. Please check it locally.
   - Consider to **put the HTML code in code block** to prevent this problem.
+  - Your solution page on Wiki page should follow submission form on [Wiki
+    homepage](https://github.com/DuckyMomo20012/owasp-juice-shop/wiki).
 
 <!-- License -->
 
@@ -241,5 +243,6 @@ Here are useful resources and libraries that we have used in our projects:
 
 - [Docusaurus](https://docusaurus.io/): Build optimized websites quickly, focus
   on your content.
+- [zx](https://github.com/google/zx): A tool for writing better scripts.
 - [Awesome Readme Template](https://github.com/Louis3797/awesome-readme-template):
   A detailed template to bootstrap your README file quickly.
