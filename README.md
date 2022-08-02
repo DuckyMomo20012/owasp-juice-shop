@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="https://raw.githubusercontent.com/juice-shop/juice-shop/develop/frontend/src/assets/public/images/JuiceShop_Logo_100px.png" alt="logo" width="200" height="auto" />
+  <img src="https://user-images.githubusercontent.com/64480713/182290673-4e617886-f8e0-4f89-8519-58d553a17f8c.svg" alt="logo" width="200" height="auto" />
   <h1>OWASP Juice Shop</h1>
 
   <p>

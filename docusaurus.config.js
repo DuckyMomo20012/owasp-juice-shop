@@ -6,18 +6,19 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "My Site",
+  title: "OWASP Juice Shop Solution Report",
   tagline: "Dinosaurs are cool",
   url: "https://your-docusaurus-test-site.com",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/favicon.ico",
+  favicon:
+    "https://user-images.githubusercontent.com/64480713/182290673-4e617886-f8e0-4f89-8519-58d553a17f8c.svg",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: "facebook", // Usually your GitHub org/user name.
-  projectName: "docusaurus", // Usually your repo name.
+  organizationName: "DuckyMomo20012", // Usually your GitHub org/user name.
+  projectName: "owasp-juice-shop", // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -52,10 +53,10 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: "My Site",
+        title: "OWASP Juice Shop Solution Report",
         logo: {
           alt: "My Site Logo",
-          src: "img/logo.svg",
+          src: "https://user-images.githubusercontent.com/64480713/182290673-4e617886-f8e0-4f89-8519-58d553a17f8c.svg",
         },
         items: [
           {
