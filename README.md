@@ -47,14 +47,14 @@
 # :notebook_with_decorative_cover: Table of Contents
 
 - [About the Project](#star2-about-the-project)
-  - [Description](#thoughtballoon-description)
+  - [Description](#thought_balloon-description)
 - [Getting Started](#toolbox-getting-started)
   - [Prerequisites](#bangbang-prerequisites)
   - [Run Locally](#running-run-locally)
   - [Deployment](#triangular_flag_on_post-deployment)
 - [Usage](#eyes-usage)
-  - [Restore Progress](#inboxtray-restore-progress)
-  - [Running Scripts](#heavycheckmark-running-scripts)
+  - [Restore Progress](#inbox_tray-restore-progress)
+  - [Running Scripts](#shell-running-scripts)
 - [Contributing](#wave-contributing)
   - [Code of Conduct](#scroll-code-of-conduct)
 - [FAQ](#grey_question-faq)
@@ -147,13 +147,13 @@ yarn deploy
 Go to your Juice Shop's scoreboard and restore latest backup file from `data`
 folder.
 
-### :heavy_check_mark: Running Scripts
+### :shell: Running Scripts
 
 Most of the time, you don't have to run these scripts manually. Every time you
 add a Wiki page, the project will automatically run the Github Actions and
 CircleCI to update the documents.
 
-> NOTE: These scripts only run on `Linux` and `MacOS`. `Windows` is not
+> **Note**: These scripts only run on `Linux` and `MacOS`. `Windows` is not
 > supported.
 
 - `generateBackup.mjs`:
@@ -183,8 +183,8 @@ CircleCI to update the documents.
     <!-- GENERATE-DOC:END -->
     ```
 
-    > NOTE: The generation maybe slow and take some time, or even fail due to
-    > large amount of data.
+    > **Note**: The generation maybe slow and take some time, or even fail due
+    > to large amount of data.
 
 <!-- Contributing -->
 
