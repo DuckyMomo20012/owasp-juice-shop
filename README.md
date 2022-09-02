@@ -175,7 +175,8 @@ CircleCI to update the documents.
 
   - This script will copy all the documents from folder `docs` to the middle of
     file `report.md`.
-  - Documents will be copied to between this tag:
+  - Documents will be copied to between this tag and **prepend** before the
+    `GENERATE-DOC:END` tag:
 
     ```
     <!-- GENERATE-DOC:START -->
@@ -214,10 +215,11 @@ Please read the [Code of Conduct](https://github.com/DuckyMomo20012/owasp-juice-
 
 - My solution is not updated on the project's documentation web page:
 
-  - Docusaurus can't parse your content. Please check it locally.
+  - Docusaurus can't parse your content. Please check it by running the doc
+    locally.
   - Consider to **put the HTML code in code block** to prevent this problem.
-  - Your solution page on Wiki page should follow submission form on [Wiki
-    homepage](https://github.com/DuckyMomo20012/owasp-juice-shop/wiki).
+  - Your solution page on Wiki page should follow submission form from
+    [CONTRIBUTING.md](CONTRIBUTING.md).
 
 <!-- License -->
 
@@ -231,7 +233,8 @@ for more information.
 
 ## :handshake: Contact
 
-Duong Vinh - [@duckymomo20012](https://twitter.com/duckymomo20012) - tienvinh.duong4@gmail.com
+Duong Vinh - [@duckymomo20012](https://twitter.com/duckymomo20012) -
+tienvinh.duong4@gmail.com
 
 Project Link: [https://github.com/DuckyMomo20012/owasp-juice-shop](https://github.com/DuckyMomo20012/owasp-juice-shop).
 
