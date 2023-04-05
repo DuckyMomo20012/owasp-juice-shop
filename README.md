@@ -86,47 +86,112 @@ This project secondly focuses on using **`CircleCI`**, **`Github Actions`** and
 
 ### :bangbang: Prerequisites
 
-This project uses [Yarn](https://yarnpkg.com/) as package manager:
+- This project uses [Yarn](https://yarnpkg.com/) as package manager:
 
-```bash
-npm install --global yarn
-```
+  ```bash
+  npm install --global yarn
+  ```
 
-To run the script, you need to install [zx](https://github.com/google/zx) tool:
+- To run the script, you need to install [zx](https://github.com/google/zx)
+  tool:
 
-**Requirement**: Node version >= 16.0.0
+  **Requirement**: Node version >= 16.0.0
 
-```bash
-npm install --global zx
-```
+  ```bash
+  npm install --global zx
+  ```
+
+- [Docker](https://www.docker.com/) installed locally:
+
+  ```bash
+  #!/usr/bin/env bash
+
+  # Uninstall old versions
+  sudo apt-get remove docker docker-engine docker.io containerd runc
+
+  # Set up the repository
+
+  # Update the apt package index and install packages to allow apt to use a
+  # repository over HTTPS
+  sudo apt-get update
+
+  sudo apt-get install \
+      ca-certificates \
+      curl \
+      gnupg \
+      lsb-release
+
+  # Add Docker’s official GPG key
+  sudo mkdir -m 0755 -p /etc/apt/keyrings
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+
+  # Use the following command to set up the repository
+  echo \
+      "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+      $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+  # Install Docker Engine
+
+  # Update the apt package index
+  sudo apt-get update
+
+  # Install Docker Engine, containerd, and Docker Compose.
+  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+  # Post installation steps
+
+  # Add your user to the docker group
+  sudo usermod -aG docker $USER
+  ```
+
+- [Burp Suite Community](https://portswigger.net/burp/communitydownload)
+  installed locally.
 
 <!-- Run Locally -->
 
 ### :running: Run Locally
 
-Clone the project:
+- **OWASP Juice Shop**:
 
-```bash
-git clone https://github.com/DuckyMomo20012/owasp-juice-shop.git
-```
+  Pull the image from Docker Hub:
 
-Go to the project directory:
+  ```bash
+  docker pull bkimminich/juice-shop
+  ```
 
-```bash
-cd owasp-juice-shop
-```
+  Run the web server:
 
-Install dependencies:
+  ```bash
+  docker run --rm -p 3000:3000 --name juice-shop bkimminich/juice-shop
+  ```
 
-```bash
-yarn
-```
+  Browse to http://localhost:3000
 
-Start the server:
+- **Document page**:
 
-```bash
-yarn start
-```
+  Clone the project:
+
+  ```bash
+  git clone https://github.com/DuckyMomo20012/owasp-juice-shop.git
+  ```
+
+  Go to the project directory:
+
+  ```bash
+  cd owasp-juice-shop
+  ```
+
+  Install dependencies:
+
+  ```bash
+  yarn
+  ```
+
+  Start the server:
+
+  ```bash
+  yarn start
+  ```
 
 <!-- Deployment -->
 
@@ -158,10 +223,9 @@ CircleCI to update the documents.
 
 - `generateBackup.mjs`:
 
-  - This script will generate a backup file and store it in
-    `data` folder.
-  - This file will contain all the data to restore the hacking
-    progress in Juice Shop's scoreboard.
+  - This script will generate a backup file and store it in `data` folder.
+  - This file will contain all the data to restore the hacking progress in Juice
+    Shop's scoreboard.
 
 - `script.mjs`:
 
@@ -203,7 +267,8 @@ See `CONTRIBUTING.md` for ways to get started.
 
 ### :scroll: Code of Conduct
 
-Please read the [Code of Conduct](https://github.com/DuckyMomo20012/owasp-juice-shop/blob/main/CODE_OF_CONDUCT.md).
+Please read the
+[Code of Conduct](https://github.com/DuckyMomo20012/owasp-juice-shop/blob/main/CODE_OF_CONDUCT.md).
 
 <!-- FAQ -->
 
@@ -236,7 +301,8 @@ for more information.
 Duong Vinh - [@duckymomo20012](https://twitter.com/duckymomo20012) -
 tienvinh.duong4@gmail.com
 
-Project Link: [https://github.com/DuckyMomo20012/owasp-juice-shop](https://github.com/DuckyMomo20012/owasp-juice-shop).
+Project Link:
+[https://github.com/DuckyMomo20012/owasp-juice-shop](https://github.com/DuckyMomo20012/owasp-juice-shop).
 
 <!-- Acknowledgments -->
 
@@ -249,3 +315,7 @@ Here are useful resources and libraries that we have used in our projects:
 - [zx](https://github.com/google/zx): A tool for writing better scripts.
 - [Awesome Readme Template](https://github.com/Louis3797/awesome-readme-template):
   A detailed template to bootstrap your README file quickly.
+
+```
+
+```
