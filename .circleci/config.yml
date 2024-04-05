@@ -32,12 +32,14 @@ jobs:
             - "5d:3f:fe:aa:c0:84:09:e7:fd:8c:d3:fc:dd:a7:8b:10"
       - run:
           name: "Install dependencies"
-          command: "yarn"
+          command: "pnpm i"
       - run:
           name: "Install zx tool"
           command: "npm install -g zx"
       - run:
-          name: "Run script to copy wiki files, generate new backup file and Push commit to GitHub"
+          name:
+            "Run script to copy wiki files, generate new backup file and Push
+            commit to GitHub"
           command: "chmod +x ./script.mjs && ./script.mjs"
 
 # Invoke jobs via workflows

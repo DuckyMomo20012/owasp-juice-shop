@@ -86,10 +86,10 @@ This project secondly focuses on using **`CircleCI`**, **`Github Actions`** and
 
 ### :bangbang: Prerequisites
 
-- This project uses [Yarn](https://yarnpkg.com/) as package manager:
+- This project uses [pnpm](https://pnpm.io/) as package manager:
 
   ```bash
-  npm install --global yarn
+  npm install --global pnpm
   ```
 
 - To run the script, you need to install [zx](https://github.com/google/zx)
@@ -184,13 +184,13 @@ This project secondly focuses on using **`CircleCI`**, **`Github Actions`** and
   Install dependencies:
 
   ```bash
-  yarn
+  pnpm i
   ```
 
   Start the server:
 
   ```bash
-  yarn start
+  pnpm start
   ```
 
 <!-- Deployment -->
@@ -200,7 +200,7 @@ This project secondly focuses on using **`CircleCI`**, **`Github Actions`** and
 To deploy this project run:
 
 ```bash
-yarn deploy
+pnpm deploy
 ```
 
 <!-- Usage -->
