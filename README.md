@@ -101,48 +101,7 @@ This project secondly focuses on using **`CircleCI`**, **`Github Actions`** and
   npm install --global zx
   ```
 
-- [Docker](https://www.docker.com/) installed locally:
-
-  ```bash
-  #!/usr/bin/env bash
-
-  # Uninstall old versions
-  sudo apt-get remove docker docker-engine docker.io containerd runc
-
-  # Set up the repository
-
-  # Update the apt package index and install packages to allow apt to use a
-  # repository over HTTPS
-  sudo apt-get update
-
-  sudo apt-get install \
-      ca-certificates \
-      curl \
-      gnupg \
-      lsb-release
-
-  # Add Docker’s official GPG key
-  sudo mkdir -m 0755 -p /etc/apt/keyrings
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-
-  # Use the following command to set up the repository
-  echo \
-      "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-      $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-  # Install Docker Engine
-
-  # Update the apt package index
-  sudo apt-get update
-
-  # Install Docker Engine, containerd, and Docker Compose.
-  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
-  # Post installation steps
-
-  # Add your user to the docker group
-  sudo usermod -aG docker $USER
-  ```
+- [Docker](https://www.docker.com/) installed locally.
 
 - [Burp Suite Community](https://portswigger.net/burp/communitydownload)
   installed locally.
@@ -151,35 +110,29 @@ This project secondly focuses on using **`CircleCI`**, **`Github Actions`** and
 
 ### :running: Run Locally
 
+Clone the project:
+
+```bash
+git clone https://github.com/DuckyMomo20012/owasp-juice-shop.git
+```
+
+Go to the project directory:
+
+```bash
+cd owasp-juice-shop
+```
+
 - **OWASP Juice Shop**:
 
-  Pull the image from Docker Hub:
+  Run Docker Compose:
 
   ```bash
-  docker pull bkimminich/juice-shop
-  ```
-
-  Run the web server:
-
-  ```bash
-  docker run --rm -p 3000:3000 --name juice-shop bkimminich/juice-shop
+  docker-compose up -d
   ```
 
   Browse to http://localhost:3000
 
 - **Document page**:
-
-  Clone the project:
-
-  ```bash
-  git clone https://github.com/DuckyMomo20012/owasp-juice-shop.git
-  ```
-
-  Go to the project directory:
-
-  ```bash
-  cd owasp-juice-shop
-  ```
 
   Install dependencies:
 
@@ -223,11 +176,19 @@ CircleCI to update the documents.
 
 - `generateBackup.mjs`:
 
+  ```bash
+  zx ./generateBackup.mjs
+  ```
+
   - This script will generate a backup file and store it in `data` folder.
   - This file will contain all the data to restore the hacking progress in Juice
     Shop's scoreboard.
 
 - `script.mjs`:
+
+  ```bash
+  zx ./script.mjs
+  ```
 
   - This script will fetch all the documents from the project's
     [Wiki](https://github.com/DuckyMomo20012/owasp-juice-shop/wiki) page, copy
@@ -236,6 +197,10 @@ CircleCI to update the documents.
   - Finally, it will push a new commit to the repository.
 
 - `generateReport.mjs`:
+
+  ```bash
+  zx ./generateReport.mjs
+  ```
 
   - This script will copy all the documents from folder `docs` to the middle of
     file `report.md`.
@@ -315,7 +280,3 @@ Here are useful resources and libraries that we have used in our projects:
 - [zx](https://github.com/google/zx): A tool for writing better scripts.
 - [Awesome Readme Template](https://github.com/Louis3797/awesome-readme-template):
   A detailed template to bootstrap your README file quickly.
-
-```
-
-```
